@@ -1,4 +1,8 @@
 import { useState } from 'react'
+import AdminDashboard from './AdminDashboard'
+import MonitoreoAccesos from './MonitoreoAccesos'
+import Usuarios from './Usuarios'
+import Reportes from './Reportes'
 
 type AdminPageProps = {
   onLogout: () => void
@@ -32,7 +36,7 @@ export default function AdminPage({
         {/* Marca */}
         <div className="border-b border-white/10 px-6 py-6">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-400">
-            Sistema Hospitalario
+            Control y Monitoreo de Acceso y Aforo
           </p>
 
           <h1 className="mt-2 text-lg font-bold text-white">
@@ -225,33 +229,13 @@ export default function AdminPage({
 
         {/* Pantallas */}
         <main className="p-4 sm:p-6 lg:p-8">
-          {vista === 'dashboard' && (
-            <PantallaTemporal
-              titulo="Dashboard"
-              descripcion="Resumen general del control de accesos."
-            />
-          )}
+          {vista === 'dashboard' && <AdminDashboard />}
 
-          {vista === 'monitoreo' && (
-            <PantallaTemporal
-              titulo="Monitoreo de accesos"
-              descripcion="Consulta y supervisión de entradas y salidas."
-            />
-          )}
+          {vista === 'monitoreo' && <MonitoreoAccesos />}
 
-          {vista === 'usuarios' && (
-            <PantallaTemporal
-              titulo="Usuarios"
-              descripcion="Administración de las cuentas del personal de vigilancia."
-            />
-          )}
+          {vista === 'usuarios' && <Usuarios />}
 
-          {vista === 'reportes' && (
-            <PantallaTemporal
-              titulo="Reportes"
-              descripcion="Indicadores y reportes del control de accesos."
-            />
-          )}
+          {vista === 'reportes' && <Reportes />}
         </main>
       </div>
     </div>
